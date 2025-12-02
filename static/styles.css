@@ -1,0 +1,96 @@
+body{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: rgb(255, 255, 255);
+    margin: 0;
+    padding: 0;
+    color: black;
+}
+
+.nav{
+    background-color: #1a1919;
+    text-align: center;
+    padding: 1.5rem;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.5);
+}
+
+.nav A{
+    color: white;
+    font-weight: bold;
+    text-decoration: none;
+    margin: 0 15px;
+}
+
+.dashboard {
+    background-color: white;
+    max-width: 500px;
+    margin: 40px auto;
+    padding: 40px;
+    border-radius: 13px;
+    box-shadow: 0 8px 10px #0000001a;
+    text-align: center;
+}
+
+.dashboard p{
+    color: rgb(86, 86, 86);
+    margin-bottom: 15px;
+    font-size: 1rem;
+}
+
+.dashboard h1{
+    color: rgb(26, 25, 25);
+    margin-bottom: 15px;
+}
+
+.dashboard input[type="text"]{
+    width: 75%;
+    padding: 10px;
+    outline: none;
+    font-size: 1rem;
+    border: 2px solid #1a1919;
+    border-radius: 10px;
+    transition: border-color 0.3s ease;
+}
+
+.dashboard button {
+    padding: 13px 25px;
+    background-color: #1a1919;
+    border: none;
+    color: white;
+    font-weight: bold;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.scan-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+    margin-top: 20px;
+    border-radius: 10px;
+    table-layout: fixed;
+}
+
+.scan-table th, td{
+    border: 2px solid #1a1919;
+    padding: 5px 5px;
+    text-align: left;
+     overflow-wrap: break-word;
+}
+
+.dashboard input[type="password"] {
+    width: 75%;
+    padding: 10px;
+    font-size: 1rem;
+    border: 2px solid #1a1919;
+    border-radius: 10px;
+    outline: none;
+    transition: border-color 0.3s ease;
+}
+
+footer {
+    text-align: center;
+    margin-top: 50px;
+    color: #999;
+    font-size: 0.9rem;
+}
