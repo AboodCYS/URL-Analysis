@@ -1,0 +1,6 @@
+Flask
+Flask-Session
+Werkzeug
+python-dotenv
+Flask-WTF
+requests
