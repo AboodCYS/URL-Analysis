@@ -1,0 +1,30 @@
+{% extends "layout.html" %}
+
+{% block title %} 
+    Homepage 
+{% endblock %}
+
+{% block body %}
+<div class="nav">
+    <a href="/logout">Log out</a>
+    <a href="/change_password">Change password</a>
+    <a href="/dashboard">Scan Dashboard</a>
+</div>
+
+<div class="dashboard">
+    <h2>Welcome {{ username }}!</h2>
+    <h3>Scan Your URL and be safe from risks.</h3>
+    <form action="/scan" method="post">
+        <input name="target" placeholder="Scan URL" autofocus autocomplete="off" required type="text">
+        <button type="submit">Scan</button>
+    </form>
+
+    {% if scan_result %}
+        <h3>Scan Result:</h3>
+        {% set stats = scan_result.data.attributes.stats %}
+            <p><strong>Malicious:</strong> {{ stats.malicious }}</p>
+            <p><strong>Harmless:</strong> {{ stats.harmless }}</p>
+            <p><strong>Suspicious:</strong> {{ stats.suspicious }}</p>
+    {% endif %}
+</div>
+{% endblock %}

@@ -1,0 +1,56 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Dashboard
+{% endblock %}
+
+{% block body %}
+<div class="dashboard">
+    <h2>Welcome, {{ username }}</h2>
+    <p>Here you can review your past scans and their details.</p>
+    <div>
+        <form action="/scan" method="post">
+            <input type="text" name="target" placeholder="Enter a URL to scan" required>
+            <button type="submit">Scan</button>
+        </form>
+    </div>
+
+    {% if last_scan %}
+        <h3>Latest Scan Result</h3>
+        <p><strong>URL:</strong> {{ last_scan.url }}</p>
+        <p><strong>Malicious:</strong> {{ last_scan.malicious }}</p>
+        <p><strong>Harmless:</strong> {{ last_scan.harmless }}</p>
+        <p><strong>Suspicious:</strong> {{ last_scan.suspicious }}</p>
+    {% endif %}
+
+    <h3>Scan History</h3>
+    {% if scans %}
+        <table class="scan-table">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>URL</th>
+                    <th>Timestamp</th>
+                    <th>Malicious</th>
+                    <th>Harmless</th>
+                    <th>Suspicious</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for scan in scans %}
+                <tr>
+                    <td>{{ scan.id }}</td>
+                    <td>{{ scan.url }}</td>
+                    <td>{{ scan.timestamp }}</td>
+                    <td style="color:red;">{{ scan.malicious }}</td>
+                    <td style="color:green;">{{ scan.harmless }}</td>
+                    <td style="color:orange;">{{ scan.suspicious }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <p>No scans yet. Start by submitting a URL above.</p>
+    {% endif %}
+</div>
+{% endblock %}

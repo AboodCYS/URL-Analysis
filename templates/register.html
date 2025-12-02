@@ -1,0 +1,29 @@
+{% extends "layout.html" %}
+
+{% block title %} 
+    Register 
+{% endblock %}
+
+{% block body %}
+<div class="dashboard">
+    <h2>Register</h2>
+    <p>Already have an account?<a href="/login">Log in</a></p>
+    {% if error %}
+        <p style="color: red;">{{ error }}</p>
+    {% endif %}
+    <form action="/register" method="post">
+        <div style="margin-bottom: 15px;">
+            <input name="username" placeholder="Username" autofocus autocomplete="off" required type="text">
+        </div>
+        <div style="margin-bottom: 15px;">
+            <input name="password" placeholder="Password" autofocus autocomplete="off" required type="password" minlength="8">
+        </div>
+        <div style="margin-bottom: 25px;">
+            <input name="confirmation" placeholder="Confirm Password" autofocus autocomplete="off" required type="password" minlength="8">
+        </div>
+        <div>
+            <button type="submit">Register</button>
+        </div>
+    </form>
+</div>
+{% endblock %}

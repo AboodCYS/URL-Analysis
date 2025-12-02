@@ -1,0 +1,26 @@
+{% extends "layout.html" %}
+
+{% block title %} 
+    Login 
+{% endblock %}
+
+{% block body %}
+<div class="dashboard">
+    <h2>Login</h2>
+    <p>Don’t you have an account?<a href="/register">Register</a></p>
+    {% if error %}
+        <p style="color: red;">{{ error }}</p>
+    {% endif %}
+    <form action="/login" method="post">
+        <div style="margin-bottom: 15px;">
+            <input name="username" placeholder="Username" autofocus autocomplete="off" required type="text">
+        </div>
+        <div style="margin-bottom: 15px;">
+            <input name="password" placeholder="Password" autofocus autocomplete="off" required minlength="8" type="password">
+        </div>
+        <div style="margin-bottom: 25px;">
+            <button type="submit">Login</button>
+        </div>
+    </form>
+</div>
+{% endblock %}
